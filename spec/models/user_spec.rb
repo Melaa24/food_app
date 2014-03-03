@@ -29,6 +29,16 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when studio is not present" do
+    before { @user.studio = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when ayurveda is not present" do
+    before { @user.ayurveda = " " }
+    it { should_not be_valid }
+  end
+
   describe "when name is too long" do
     before { @user.name = "a" * 51 }
     it { should_not be_valid }
