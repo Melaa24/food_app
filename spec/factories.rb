@@ -6,5 +6,9 @@ FactoryGirl.define do
     ayurveda "Dr. Feel Good"
     password "foobar"
     password_confirmation "foobar"
+
+    factory :admin do
+      admin true
+    end
   end
 end
