@@ -10,6 +10,12 @@ describe "User pages" do
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+    it { should have_content(user.aliment) }
+    it { should have_content(user.allergy) }
+    it { should have_content(user.birthday) }
+    it { should have_content(user.location) }
+    it { should have_content(user.phone) }
+    it { should have_content(user.gender) }
   end
 
   describe "signup page" do
@@ -57,6 +63,12 @@ describe "User pages" do
     describe "page" do
       it { should have_content("Update your profile") }
       it { should have_title("Edit user") }
+      it { should have_content('aliments') }
+      it { should have_content('allergies') }
+      it { should have_content('Birthday') }
+      it { should have_content('location') }
+      it { should have_content('Phone') }
+      it { should have_content('Gender') }
     end
 
     describe "with valid information" do

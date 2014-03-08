@@ -3,28 +3,31 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+    <%= simple_form_for @user do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.input :studio, collection: 18..34, prompt: "Select your affliated studio" %>
+      <%= f.input :ayurveda %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <h2>Tell us more about yourself so we can better help you!</h2>
 
-      <%= f.label :studio %>
-      <%= f.text_field :studio %>
+      <%= f.input :aliment, as: :text %>
+      <%= f.input :allergy, as: :text %>
+      <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 12, discard_day: true,
+                              order: [:month, :year] %>
+      <%= f.input :location %>
+      <%= f.input :phone %>
+      <%= f.label :gender %>
+      <%= f.collection_radio_buttons :gender, [[true, 'Female'], [false, 'Male']], :first, :last %>
 
-      <%= f.label :ayurveda %>
-      <%= f.text_field :ayurveda %>
+      <h2>Enter your password and confirm to update your profile</h2>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.submit "Save changes" %>
     <% end %>
   </div>
 </div>
