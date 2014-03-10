@@ -13,8 +13,8 @@ en:
     # Labels and hints examples
     labels:
       user:
-        studio: 'Affliated Yoga Studio'
-        ayurveda: 'Affliated Ayurveda Practioner'
+        studio: 'Yoga Studio'
+        ayurveda: 'Ayurveda Practioner'
         aliment: 'Please list what aliments you are currently suffering from'
         allergy: 'Known allergies'
         location: 'My Location'

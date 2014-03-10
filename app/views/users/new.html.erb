@@ -3,26 +3,17 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+    <%= simple_form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :studio, "Affiliated Yoga Studio" %>
-      <%= f.text_field :studio %>
-
-      <%= f.label :ayurveda, "Participating Ayurveda Practioner" %>
-      <%= f.text_field :ayurveda %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.input :studio_id, collection: Studio.all(order: 'name'), 
+                                  prompt: "Select your affliated studio" %>
+      <%= f.input :ayurveda_id, collection: Ayurveda.all(order: 'name'),
+                                  prompt: "Select an affliated practioner" %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
 
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>

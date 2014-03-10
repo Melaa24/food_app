@@ -11,18 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307175909) do
+ActiveRecord::Schema.define(version: 20140310170724) do
+
+  create_table "ayurvedas", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "studios", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "studio"
-    t.string   "ayurveda"
+    t.integer  "studio_id",       limit: 255
+    t.integer  "ayurveda_id",     limit: 255
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token"
-    t.boolean  "admin",           default: false
+    t.boolean  "admin",                       default: false
     t.string   "aliment"
     t.string   "allergy"
     t.string   "birthday"

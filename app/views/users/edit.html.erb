@@ -8,26 +8,27 @@
 
       <%= f.input :name %>
       <%= f.input :email %>
-      <%= f.input :studio, collection: 18..34, prompt: "Select your affliated studio" %>
-      <%= f.input :ayurveda %>
+      <%= f.input :studio_id, collection: Studio.all(order: 'name'), 
+                                  prompt: "Select your affliated studio" %>
+      <%= f.input :ayurveda_id, collection: Ayurveda.all(order: 'name'),
+                                  prompt: "Select an affliated practioner" %>
 
       <h2>Tell us more about yourself so we can better help you!</h2>
 
       <%= f.input :aliment, as: :text %>
       <%= f.input :allergy, as: :text %>
-      <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
-                              end_year: Date.today.year - 12, discard_day: true,
-                              order: [:month, :year] %>
+      <%= f.input :birthday %>
       <%= f.input :location %>
       <%= f.input :phone %>
       <%= f.label :gender %>
-      <%= f.collection_radio_buttons :gender, [[true, 'Female'], [false, 'Male']], :first, :last %>
+      <%= f.collection_radio_buttons :gender, [['Female', 'Female'], 
+                                    ['Male', 'Male']], :first, :last %>
 
       <h2>Enter your password and confirm to update your profile</h2>
 
       <%= f.input :password %>
       <%= f.input :password_confirmation %>
-      <%= f.submit "Save changes" %>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary"%>
     <% end %>
   </div>
 </div>

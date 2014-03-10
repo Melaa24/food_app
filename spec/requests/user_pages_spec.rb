@@ -66,7 +66,7 @@ describe "User pages" do
       it { should have_content('aliments') }
       it { should have_content('allergies') }
       it { should have_content('Birthday') }
-      it { should have_content('location') }
+      it { should have_content('My Location') }
       it { should have_content('Phone') }
       it { should have_content('Gender') }
     end
@@ -75,10 +75,10 @@ describe "User pages" do
       let(:new_name)  { "New Name" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_in "Name",             with: new_name
-        fill_in "Email",            with: new_email
-        fill_in "Password",         with: user.password
-        fill_in "Confirm Password", with: user.password
+        fill_in "Name",                  with: new_name
+        fill_in "Email",                 with: new_email
+        fill_in "Password",              with: user.password
+        fill_in "Password confirmation", with: user.password
         click_button "Save changes"
       end
 

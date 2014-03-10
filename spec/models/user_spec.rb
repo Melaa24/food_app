@@ -3,15 +3,15 @@ require 'spec_helper'
 describe User do
 
   before { @user = User.new(name: "Example User", email: "user@example.com",
-  							studio: "Yoga Now", ayurveda: "Dr. Feel Good",
+  							studio_id: 2, ayurveda_id: 3,
   							password: "foobar", password_confirmation: "foobar") }
 
   subject { @user }
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
-  it { should respond_to(:studio) }
-  it { should respond_to(:ayurveda) }
+  it { should respond_to(:studio_id) }
+  it { should respond_to(:ayurveda_id) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
@@ -42,12 +42,12 @@ describe User do
   end
 
   describe "when studio is not present" do
-    before { @user.studio = " " }
+    before { @user.studio_id = " " }
     it { should_not be_valid }
   end
 
   describe "when ayurveda is not present" do
-    before { @user.ayurveda = " " }
+    before { @user.ayurveda_id = " " }
     it { should_not be_valid }
   end
 
@@ -100,7 +100,7 @@ describe User do
   describe "when password is not present" do
     before do
       @user = User.new(name: "Example User", email: "user@example.com",
-                        studio: "Yoga Now", ayurveda: "Dr. Feel Good",
+                        studio_id: 2, ayurveda_id: 3,
                         password: " ", password_confirmation: " ")
     end
     it { should_not be_valid }
