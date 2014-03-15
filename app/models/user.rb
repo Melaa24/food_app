@@ -5,16 +5,20 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-  					uniqueness: { case_sensitive: false }
+  					               uniqueness: { case_sensitive: false }
   validates :studio_id, presence: true
   validates :ayurveda_id, presence: true
+
+  validates :aliment, allow_nil: true, allow_blank: true, length: { maximum: 1000 }
+  validates :allergy, allow_nil: true, allow_blank: true, length: { maximum: 1000 }
+  validates :phone, numericality: true, length: { in: 10..15 }, 
+                           allow_nil: true, allow_blank: true
+  
   has_secure_password
   validates :password, length: { minimum: 6 }
 
   belongs_to :studio
   belongs_to :ayurveda
-  accepts_nested_attributes_for :studio
-  accepts_nested_attributes_for :ayurveda
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

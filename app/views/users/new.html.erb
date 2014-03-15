@@ -8,9 +8,9 @@
 
       <%= f.input :name %>
       <%= f.input :email %>
-      <%= f.input :studio_id, collection: Studio.all(order: 'name'), 
+      <%= f.input :studio_id, collection: Studio.order('created_at DESC').to_a, 
                                   prompt: "Select your affliated studio" %>
-      <%= f.input :ayurveda_id, collection: Ayurveda.all(order: 'name'),
+      <%= f.input :ayurveda_id, collection: Ayurveda.order('created_at DESC').to_a,
                                   prompt: "Select an affliated practioner" %>
       <%= f.input :password %>
       <%= f.input :password_confirmation %>

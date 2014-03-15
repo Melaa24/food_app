@@ -8,9 +8,9 @@
 
       <%= f.input :name %>
       <%= f.input :email %>
-      <%= f.input :studio_id, collection: Studio.all(order: 'name'), 
+      <%= f.input :studio_id, collection: Studio.order('created_at DESC').to_a, 
                                   prompt: "Select your affliated studio" %>
-      <%= f.input :ayurveda_id, collection: Ayurveda.all(order: 'name'),
+      <%= f.input :ayurveda_id, collection: Ayurveda.order('created_at DESC').to_a,
                                   prompt: "Select an affliated practioner" %>
 
       <h2>Tell us more about yourself so we can better help you!</h2>
@@ -18,8 +18,8 @@
       <%= f.input :aliment, as: :text %>
       <%= f.input :allergy, as: :text %>
       <%= f.input :birthday %>
-      <%= f.input :location %>
-      <%= f.input :phone %>
+      <%= f.input :location, :placeholder => "Town, State" %>
+      <%= f.input :phone, :placeholder => "Enter your phone number; numbers only" %>
       <%= f.label :gender %>
       <%= f.collection_radio_buttons :gender, [['Female', 'Female'], 
                                     ['Male', 'Male']], :first, :last %>

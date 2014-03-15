@@ -136,4 +136,19 @@ describe User do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
   end
+
+  describe "the correct format for phone number" do
+    before { @user.phone }
+    it { should be_valid }
+  end
+
+  describe "aliments information" do
+    before { @user.aliment }
+    it { should be_valid }
+  end
+
+  describe "allergy infromation" do
+    before { @user.allergy }
+    it { should be_valid }
+  end
 end
