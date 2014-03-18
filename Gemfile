@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
-gem 'rails', '4.0.4'
+gem 'rails', '4.0.3'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
@@ -25,7 +25,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails', '3.0.4'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '~> 1.2'
-gem 'simple_form'
 
 group :doc do
   gem 'sdoc', require: false

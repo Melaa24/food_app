@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "User pages" do
 
   subject { page }
-
+  
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
@@ -36,7 +36,18 @@ describe "User pages" do
     end
 
     describe "with valid information" do
-      before { valid_signup(page) }
+      FactoryGirl.create(:studio) 
+      FactoryGirl.create(:ayurveda)
+      before do
+        fill_in "Name",               with: "Example User"
+        fill_in "Email",              with: "user@example.com"
+        select "Example Studio",      from: "user[studio_id]"
+        select "Example Ayurveda",    from: "user[ayurveda_id]"
+        fill_in "Password",           with: "foobar"
+        fill_in "Confirmation",       with: "foobar"
+      end
+      after(:all) { Studio.delete_all }
+      after(:all) { Ayurveda.delete_all }
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
@@ -63,10 +74,10 @@ describe "User pages" do
     describe "page" do
       it { should have_content("Update your profile") }
       it { should have_title("Edit user") }
-      it { should have_content('aliments') }
-      it { should have_content('allergies') }
+      it { should have_content('Aliments') }
+      it { should have_content('Allergies') }
       it { should have_content('Birthday') }
-      it { should have_content('My Location') }
+      it { should have_content('Location') }
       it { should have_content('Phone') }
       it { should have_content('Gender') }
     end
@@ -78,7 +89,7 @@ describe "User pages" do
         fill_in "Name",                  with: new_name
         fill_in "Email",                 with: new_email
         fill_in "Password",              with: user.password
-        fill_in "Password confirmation", with: user.password
+        fill_in "Confirmation",          with: user.password
         click_button "Save changes"
       end
 
@@ -89,4 +100,5 @@ describe "User pages" do
       specify { expect(user.reload.email).to eq new_email }
     end
   end
+  after(:all) { User.delete_all }
 end

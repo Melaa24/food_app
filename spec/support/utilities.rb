@@ -1,14 +1,5 @@
 include ApplicationHelper
 
-def valid_signup(page)
-  fill_in "Name",         with: "Example User"
-  fill_in "Email",        with: "user@example.com"
-  select 'Yoga Now',      :from => 'Studio'
-  select 'Dr. Feel Good', :from => 'Ayurveda'
-  fill_in "Password",     with: "foobar"
-  fill_in "Confirmation", with: "foobar"
-end
-
 def full_title(page_title)
   base_title = "Food App"
   if page_title.empty?

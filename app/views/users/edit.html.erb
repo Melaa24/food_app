@@ -3,32 +3,55 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= simple_form_for @user do |f| %>
+     <%= form_for @user do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.input :name %>
-      <%= f.input :email %>
-      <%= f.input :studio_id, collection: Studio.order('created_at DESC').to_a, 
-                                  prompt: "Select your affliated studio" %>
-      <%= f.input :ayurveda_id, collection: Ayurveda.order('created_at DESC').to_a,
-                                  prompt: "Select an affliated practioner" %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :studio %>
+      <%= collection_select(:user, :studio_id, Studio.all, :id, :name) %>
+      
+      <%= f.label :ayurveda %>
+      <%= collection_select(:user, :ayurveda_id, Ayurveda.all, :id, :name) %>
 
       <h2>Tell us more about yourself so we can better help you!</h2>
 
-      <%= f.input :aliment, as: :text %>
-      <%= f.input :allergy, as: :text %>
-      <%= f.input :birthday %>
-      <%= f.input :location, :placeholder => "Town, State" %>
-      <%= f.input :phone, :placeholder => "Enter your phone number; numbers only" %>
+      <%= f.label :aliments %>
+      <%= f.text_area :aliment %>
+
+      <%= f.label :allergies %>
+      <%= f.text_area :allergy %>
+
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday %>
+
+      <%= f.label :location %>
+      <%= f.text_field :location, :placeholder => "Town, State" %>
+
+      <%= f.label :phone %>
+      <%= f.telephone_field(:phone) %>
+
       <%= f.label :gender %>
       <%= f.collection_radio_buttons :gender, [['Female', 'Female'], 
                                     ['Male', 'Male']], :first, :last %>
 
       <h2>Enter your password and confirm to update your profile</h2>
 
-      <%= f.input :password %>
-      <%= f.input :password_confirmation %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
       <%= f.submit "Save changes", class: "btn btn-large btn-primary"%>
+    <% end %>
+
+    <%= form_for @user do |f| %>
+      
+      
     <% end %>
   </div>
 </div>

@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   belongs_to :studio
   belongs_to :ayurveda
 
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

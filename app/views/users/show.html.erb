@@ -2,8 +2,8 @@
 <h1><%= @user.name %></h1>
 <div>
   <b>Email: </b><%= @user.email %><br/ >
-  <b>Affliated Yoga Studio: </b><%= @user.studio %><br/ >
-  <b>Affliated Ayurveda Practioner: </b><%= @user.ayurveda %><br/ >
+  <b>Affliated Yoga Studio: </b><%= @user.studio.try(:name) %><br/ >
+  <b>Affliated Ayurveda Practioner: </b><%= @user.ayurveda.try(:name) %><br/ >
   <b>Aliments: </b><%= @user.aliment %><br/ >
   <b>Known allgeries: </b><%= @user.allergy %><br/ >
   <b>Birthday: </b><%= @user.birthday %><br/ >

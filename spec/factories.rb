@@ -14,4 +14,12 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :studio do
+    name                "Example Studio"
+  end
+
+  factory :ayurveda do
+    name                "Example Ayurveda"
+  end
 end
