@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @studio = Studio.all
   end
 
   def create

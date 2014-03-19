@@ -62,6 +62,7 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
+  margin-left: 20px;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
@@ -158,4 +159,8 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+
+label {
+  display: inline;
 }

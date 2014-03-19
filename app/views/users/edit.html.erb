@@ -2,56 +2,100 @@
 <h1>Update your profile</h1>
 
 <div class="row">
-  <div class="span6 offset3">
-     <%= form_for @user do |f| %>
+  <%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+    <fieldset>
       <%= render 'shared/error_messages' %>
+      <div class="span6">
+        <h2>About Me</h2>
+        <div class="control-group">
+          <%= f.label :birthday, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.date_field :birthday %>
+          </div>
+        </div>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+        <div class="control-group">
+          <%= f.label :phone, "Phone Number", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.telephone_field(:phone) %>
+          </div>
+        </div>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %>
+        <div class="control-group">
+          <%= f.label :location, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :location, :placeholder => "Town, State" %>
+          </div>
+        </div>
 
-      <%= f.label :studio %>
-      <%= collection_select(:user, :studio_id, Studio.all, :id, :name) %>
+        <div class="control-group">
+          <%= f.label :aliments, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :aliment %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :allergies, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :allergy %>
+          </div>
+        </div>
+      </div>
+
+      <div class="span5">
+        <h2>Personal Information</h2>
+        <div class="control-group">
+          <%= f.label :name, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :name, :class => 'text_field' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :email, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.email_field :email, :class => 'text_field' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :studio, :class => 'control-label' %>
+          <div class="controls">
+            <%= collection_select(:user, :studio_id, Studio.all, :id, :name) %>
+          </div>
+        </div>
       
-      <%= f.label :ayurveda %>
-      <%= collection_select(:user, :ayurveda_id, Ayurveda.all, :id, :name) %>
+        <div class="control-group">
+          <%= f.label :ayurveda, :class => 'control-label' %>
+          <div class="controls">
+            <%= collection_select(:user, :ayurveda_id, Ayurveda.all, :id, :name) %>
+          </div>
+        </div>
+      </div>
 
-      <h2>Tell us more about yourself so we can better help you!</h2>
+      <div class="span7 offset3">
+        <h4>Enter your password and confirm to update your profile</h4>
 
-      <%= f.label :aliments %>
-      <%= f.text_area :aliment %>
+        <div class="control-group">
+          <%= f.label :password, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.password_field :password %>
+          </div>
+        </div>
 
-      <%= f.label :allergies %>
-      <%= f.text_area :allergy %>
+        <div class="control-group">
+          <%= f.label :password_confirmation, "Confirmation", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.password_field :password_confirmation %>
+          </div>
+        </div>
 
-      <%= f.label :birthday %>
-      <%= f.date_field :birthday %>
-
-      <%= f.label :location %>
-      <%= f.text_field :location, :placeholder => "Town, State" %>
-
-      <%= f.label :phone %>
-      <%= f.telephone_field(:phone) %>
-
-      <%= f.label :gender %>
-      <%= f.collection_radio_buttons :gender, [['Female', 'Female'], 
-                                    ['Male', 'Male']], :first, :last %>
-
-      <h2>Enter your password and confirm to update your profile</h2>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary"%>
-    <% end %>
-
-    <%= form_for @user do |f| %>
-      
-      
-    <% end %>
-  </div>
+        <div class="form-actions">
+          <%= f.submit "Save changes", class: "btn btn-primary"%>
+          <%= link_to 'Cancel', current_user, :class => 'btn' %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
 </div>

@@ -3,30 +3,58 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+    <%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+      <fieldset>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+        <div class="control-group">
+          <%= f.label :name, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :name, :class => 'text_field' %>
+          </div>
+        </div>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %>
+        <div class="control-group">
+          <%= f.label :email, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.email_field :email, :class => 'text_field' %>
+          </div>
+        </div>
 
-      <%= f.label :studio %>
-      <%= collection_select(:user, :studio_id, Studio.all, :id, :name, 
-                    options = {:prompt => "Select your yoga studio"}) %>
+        <div class="control-group">
+          <%= f.label :studio, "Yoga Studio", :class => 'control-label' %>
+          <div class="controls">
+            <%= collection_select(:user, :studio_id, Studio.all, :id, :name,
+                                  prompt: "Select your Yoga Studio") %>
+          </div>
+        </div>
       
-      <%= f.label :ayurveda %>
-      <%= collection_select(:user, :ayurveda_id, Ayurveda.all, :id, :name,
-                    option = {:prompt => "Select your Ayurveda practioner"}) %>
+        <div class="control-group">
+          <%= f.label :ayurveda, "Ayurveda Practioner", :class => 'control-label' %>
+          <div class="controls">
+            <%= collection_select(:user, :ayurveda_id, Ayurveda.all, :id, :name, 
+                                  prompt: "Select your Practionier") %>
+          </div>
+        </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+        <div class="control-group">
+          <%= f.label :password, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.password_field :password %>
+          </div>
+        </div>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+        <div class="control-group">
+          <%= f.label :password_confirmation, "Confirmation", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.password_field :password_confirmation %>
+          </div>
+        </div>
 
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+        <div class="form-actions">
+          <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+        </div>
+      </fieldset>
     <% end %>
   </div>
 </div>
