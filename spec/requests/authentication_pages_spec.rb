@@ -94,5 +94,13 @@ describe "Authentication" do
         specify { expect(response).to redirect_to(root_url) }
       end
     end
+
+    describe "in the Posts controller" do
+
+      describe "submitting to the create action" do
+        before { post posts_path }
+        specify { expect(response).to redirect_to(signin_path) }
+      end
+    end
   end
 end

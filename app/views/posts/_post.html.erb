@@ -1,0 +1,8 @@
+<li>
+  <span class="title"><%= post.title %></span>
+  <span class="content"><%= post.content %></span>
+  <span class="timestamp">
+    <div>Posted by <%= post.user.name %></div>
+    <%= time_ago_in_words(post.created_at) %>
+  </span>
+</li>

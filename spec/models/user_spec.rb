@@ -18,6 +18,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:posts) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -150,5 +151,20 @@ describe User do
   describe "allergy infromation" do
     before { @user.allergy }
     it { should be_valid }
+  end
+
+  describe "post associations" do
+    before { @user.save }
+    let!(:older_post) do
+      FactoryGirl.create(:post, user: @user, created_at: 1.day.ago)
+    end
+
+    let!(:newer_post) do
+      FactoryGirl.create(:post, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right posts int he right order" do
+      expect(@user.posts.to_a).to eq [newer_post, older_post]
+    end
   end
 end

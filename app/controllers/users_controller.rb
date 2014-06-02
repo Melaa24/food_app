@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @post = current_user.posts.build if signed_in?
   end
 
   def create
@@ -39,18 +40,11 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :studio_id,
       							               :ayurveda_id, :aliment, :allergy, :birthday,
-                                   :location, :phone, :gender, :password,
+                                   :location, :phone, :password,
                                    :password_confirmation)
     end
 
     # Before filters
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
-      end
-    end
 
     def correct_user
       @user = User.find(params[:id])

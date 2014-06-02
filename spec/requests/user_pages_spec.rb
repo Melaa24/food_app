@@ -6,7 +6,10 @@ describe "User pages" do
   
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
-    before { visit user_path(user) }
+    before do
+      sign_in user
+      visit user_path(user)
+    end
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
@@ -15,7 +18,6 @@ describe "User pages" do
     it { should have_content(user.birthday) }
     it { should have_content(user.location) }
     it { should have_content(user.phone) }
-    it { should have_content(user.gender) }
   end
 
   describe "signup page" do
@@ -79,7 +81,6 @@ describe "User pages" do
       it { should have_content('Birthday') }
       it { should have_content('Location') }
       it { should have_content('Phone') }
-      it { should have_content('Gender') }
     end
 
     describe "with valid information" do
@@ -100,5 +101,17 @@ describe "User pages" do
       specify { expect(user.reload.email).to eq new_email }
     end
   end
-  after(:all) { User.delete_all }
+
+  describe "when viewing the admin console" do
+    let(:admin) { FactoryGirl.create(:admin) }
+    before do
+      sign_in admin
+      visit user_path(admin)
+    end
+
+    it { should have_content(admin.name) }
+    it { should have_button('Create Post') }
+    it { should have_link('Display Users') }
+    it { should have_link('Edit Menu Items') }
+  end
 end
