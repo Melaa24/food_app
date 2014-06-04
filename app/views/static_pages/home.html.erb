@@ -3,7 +3,7 @@
 	  <div class="center hero-unit">
   	  <h2>Our vision here at "Food_App" is to live in a society where food is viewed as a medicine and the kitchen as a pharmacy.</h2>
       <h2>
-        <img src="app/assets/images/image.jpeg">
+        <img src="app/assets/images/banner.jpeg">
       </h2>
   	</div>
   	<div class="posts">
@@ -11,6 +11,7 @@
         <ol class="posts">
           <%= render @posts %>
         </ol>
+        <%= will_paginate @posts %>
       <% end %>
   	</div>
   </div>

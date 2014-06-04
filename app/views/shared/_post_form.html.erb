@@ -1,6 +1,7 @@
-<%= form_for @post do |f| %>
+<%= form_for post do |f| %>
   <fieldset>
-    <%= render 'shared/error_messages', object: f.object %>
+    <% render :partial => "shared/error_messages", :locals => {:object => @post} %>
+  
     <div class="control-group">
       <%= f.label :title, :class => 'control-label' %>
       <div class="controls">
@@ -16,7 +17,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.submit "Create Post", class: "btn btn-primary"%>
+      <%= f.submit "Create Post", class: "btn btn-primary" %>
     </div>
   </fieldset>
 <% end %>

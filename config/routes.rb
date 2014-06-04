@@ -1,7 +1,7 @@
 FoodApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :posts, only: [:create]
+  resources :posts, only: [:new, :create]
 
   root 'static_pages#home'
   match '/about',   to: 'static_pages#about',   via: 'get'

@@ -3,9 +3,11 @@
 <div class='row'>
   <div class='span3'>
     <a href='#'>Display Users</a><br/>
-  	<a href='#'>Edit Menu Items</a>
+  	<a href='#'>Edit Menu Items</a><br/>
+  	<a href='#'>Order History</a><br />
+  	<a href='#'>This Weeks Orders</a>
   </div>
   <div class='span9'>
-    <%= render 'shared/post_form' %>
+    <%= render partial: 'shared/post_form', locals: {post: @post} %>
   </div>
 </div>

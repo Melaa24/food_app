@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
   before_action :signed_in_user
+  before_action :admin_user
+  
+  def new
+    @post = Post.new
+  end
 
   def create
   	@post = current_user.posts.build(post_params)
