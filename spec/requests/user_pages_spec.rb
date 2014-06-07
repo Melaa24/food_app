@@ -3,6 +3,24 @@ require 'spec_helper'
 describe "User pages" do
 
   subject { page }
+
+  describe "index" do
+    before do
+      sign_in FactoryGirl.create(:admin)
+      FactoryGirl.create(:user, name: "Bob", email: "bob@example.com")
+      FactoryGirl.create(:user, name: "Ben", email: "ben@example.com")
+      visit users_path
+    end
+
+    it { should have_title('All Users') }
+    it { should have_content('All Users') }
+
+    it "should list each user" do
+      User.all.each do |user|
+        expect(page).to have_selector('li', text: user.name)
+      end
+    end
+  end
   
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
@@ -102,7 +120,7 @@ describe "User pages" do
     end
   end
 
-  describe "when viewing the admin console" do
+  describe "when viewing the admin console home" do
     let(:admin) { FactoryGirl.create(:admin) }
     before do
       sign_in admin
@@ -113,5 +131,7 @@ describe "User pages" do
     it { should have_button('Create Post') }
     it { should have_link('Display Users') }
     it { should have_link('Edit Menu Items') }
+    it { should have_link('Order History') }
+    it { should have_link('This Weeks Orders') }
   end
 end

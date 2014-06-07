@@ -10,7 +10,7 @@ describe "Static pages" do
     let!(:p2) { FactoryGirl.create(:post, user: admin_user, title: "Bar", content: "Bar") }
     before { visit root_path }
 
-    it { should have_content('Our vision here at "Food_App"') }
+    it { should have_content('My name is Deborah ') }
     it { should have_title(full_title('')) }
     it { should_not have_title('| Home') }
 

@@ -1,10 +1,7 @@
 <div class="row">
   <div class="span9">
 	  <div class="center hero-unit">
-  	  <h2>Our vision here at "Food_App" is to live in a society where food is viewed as a medicine and the kitchen as a pharmacy.</h2>
-      <h2>
-        <img src="app/assets/images/banner.jpeg">
-      </h2>
+  	  <img src="/images/banner.jpg">
   	</div>
   	<div class="posts">
       <% unless @posts.blank? %>
@@ -17,13 +14,14 @@
   </div>
   <div class="span3">
     <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-    <div> 
-     Hey hey! <br> My name is Deborah and I am on a journey towards making piece with being uncomfortable.  I started this blog to help me be brave enough to admit to how I feel and that who I really am.  My posts are a timetable of me sorting through the various levels of contrast in my life's experiences, in an attempt to expose the good and bad.  This is a raw insight into my own learning processes in striving to express and allow my emotions, wounds, traumas and pains to surface healthfully and with love. With support and honesty as my allies, I seek the comfort of true acceptance of where I am today, in order to move in the direction of that which I desire.  
-     <br>
-     I founded (company name) as my own personal responsibility to honor my self, apply what I learn to my life, and carry the message of love and hope to others.
-     I welcome you to join me as my journey continues to unfold.
-     <br>
-     Deborah
+    <div class="profile"> 
+      <div><img src="/images/profilepic.jpg" height="180" width="150"></div>
+      Hey hey! <br> My name is Deborah and I am on a journey towards making piece with being uncomfortable.  I started this blog to help me be brave enough to admit to how I feel and that who I really am.  <br> My posts are a timetable of me sorting through the various levels of contrast in my life's experiences, in an attempt to expose the good and bad.  This is a raw insight into my own learning processes in striving to express and allow my emotions, wounds, traumas and pains to surface healthfully and with love. With support and honesty as my allies, I seek the comfort of true acceptance of where I am today, in order to move in the direction of that which I desire. 
+      <br>
+      I founded (company name) as my own personal responsibility to honor my self, apply what I learn to my life, and carry the message of love and hope to others.
+      I welcome you to join me as my journey continues to unfold.
+      <br>
+      <img src="/images/signature.jpg">
     </div>
   </div>
 </div>

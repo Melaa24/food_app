@@ -1,4 +1,6 @@
-<h1>Admin Console for <%= @user.name %></h1>
+<% provide(:title, 'All Users') %>
+<h1>All Users</h1>
+
 <div class='row'>
   <div class='span3'>
     <%= link_to "Display Users", users_path %><br/>
@@ -8,6 +10,12 @@
   	<a href='#'>This Weeks Orders</a>
   </div>
   <div class='span9'>
-    <%= render partial: 'shared/post_form', locals: {post: @post} %>
+    <ul class="users">
+      <% @users.each do |user| %>
+        <li>
+          <%= link_to user.name, user %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
