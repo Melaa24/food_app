@@ -2,13 +2,7 @@
 <h1>All Users</h1>
 
 <div class='row'>
-  <div class='span3'>
-    <%= link_to "Display Users", users_path %><br/>
-    <%= link_to "Create a Post", user_path(current_user) %><br/>
-  	<a href='#'>Edit Menu Items</a><br/>
-  	<a href='#'>Order History</a><br />
-  	<a href='#'>This Weeks Orders</a>
-  </div>
+  <%= render 'shared/admin_sidebar' %>
   <div class='span9'>
     <ul class="users">
       <% @users.each do |user| %>

@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   	  flash[:success] = "Post created!"
   	  redirect_to root_url
   	else
-      redirect_to user_path(current_user)
+      render new_post_path
   	end
   end
 
@@ -20,5 +20,9 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :content)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

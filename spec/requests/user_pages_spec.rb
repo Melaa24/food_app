@@ -119,19 +119,4 @@ describe "User pages" do
       specify { expect(user.reload.email).to eq new_email }
     end
   end
-
-  describe "when viewing the admin console home" do
-    let(:admin) { FactoryGirl.create(:admin) }
-    before do
-      sign_in admin
-      visit user_path(admin)
-    end
-
-    it { should have_content(admin.name) }
-    it { should have_button('Create Post') }
-    it { should have_link('Display Users') }
-    it { should have_link('Edit Menu Items') }
-    it { should have_link('Order History') }
-    it { should have_link('This Weeks Orders') }
-  end
 end

@@ -40,6 +40,13 @@ describe "Authentication" do
         before { click_link "Sign out" }
         it { should have_link('Sign in') }
       end
+
+      describe "as admin user" do
+        let(:admin_user) { FactoryGirl.create(:admin) }
+        before { sign_in admin_user }
+
+        it { should have_link('Admin Console', href: console_path(admin_user)) }
+      end
     end
   end
 
