@@ -1,11 +1,11 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
-    <%= link_to "food app", root_path, id: "logo" %>
+    <%= link_to image_tag("/images/logo.jpg"), root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Home",     root_path %></li>
           <li><%= link_to "About",    about_path %></li>
-          <li><%= link_to "Contact",  contact_path %></li>
+          <li><%= link_to "Contact",  new_contact_path %></li>
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -13,7 +13,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Weekly Menu", '#' %></li>
-                <li><%= link_to "Workshops", '#' %></li>
+                <li><%= link_to "Workshops", workshop_path %></li>
               </ul>
             </li>
             <li id="fat-menu" class="dropdown">

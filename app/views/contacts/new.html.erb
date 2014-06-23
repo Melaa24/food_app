@@ -1,0 +1,57 @@
+<% provide(:title, 'Contact') %>
+<h1>Contact Us</h1>
+<div class="row">
+  <div class="span9 offset1 well">
+  	<%= form_for @contact, :html => { :class => 'form-horizontal' } do |f| %>
+      <fieldset>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div class="control-group">
+          <%= f.label :name, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :name, :class => 'text_field', :required => true %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :email, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.email_field :email, :class => 'text_field', :required => true %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :phone, "Phone Number", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.telephone_field(:phone) %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :topic, :class => 'control-label' %>
+          <div class="controls">
+            <%= check_box_tag(:topic) %>
+            <%= label_tag(:topic, "General Inquiry") %><br/>
+            <%= check_box_tag(:topic) %>
+            <%= label_tag(:topic, "Schedule a workshop") %><br/><br/>
+          </div>
+
+
+        <div class="control-group">
+          <%= f.label :message, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :message, :as => :text, :required => true %>
+          </div>
+        </div>
+    
+        <div class= "hidden">
+          <%= f.hidden_field :nickname, :hint => 'Leave this field blank!' %>
+        </div>
+        <div class="form-actions">
+          </br>
+          <%= f.submit "Send Message", :class=> "btn btn-info" %>
+        </div>
+      </fieldset>
+    <% end %>   
+  </div>
+</div> 

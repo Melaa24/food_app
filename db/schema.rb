@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140322134832) do
+ActiveRecord::Schema.define(version: 20140610180353) do
 
   create_table "ayurvedas", force: true do |t|
     t.string   "name"

@@ -2,7 +2,7 @@
 <h1>Create a Post</h1>
 <div class="row">
   <%= render 'shared/admin_sidebar' %>
-  <div class="span9">
+  <div class="span8 well">
     <%= form_for @post do |f| %>
       <fieldset>
         <% render :partial => "shared/error_messages", :locals => {:object => @post} %>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.submit "Create Post", class: "btn btn-primary" %>
+          <%= f.submit "Create Post", class: "btn btn-info" %>
         </div>
       </fieldset>
     <% end %>
