@@ -15,7 +15,7 @@ describe "ContactPages" do
         fill_in 'Name',     with: "Full Name"
         fill_in 'Email',    with: "example@example.com"
         fill_in 'Phone',    with: "555-1234"
-        select 'Schedule a workshop', from: "topic"
+        choose  'Schedule a workshop'
         fill_in 'Message',  with: "questions and comments"
       end
 

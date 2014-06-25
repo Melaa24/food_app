@@ -1,7 +1,9 @@
 <% provide(:title, 'Contact') %>
-<h1>Contact Us</h1>
+<h3>We'd love to hear from you!</h3>
 <div class="row">
   <div class="span9 offset1 well">
+    <p>Contact us by phone at 603-361-4296.</p>
+    <p>Contact us via the web:</p>
   	<%= form_for @contact, :html => { :class => 'form-horizontal' } do |f| %>
       <fieldset>
         <%= render 'shared/error_messages', object: f.object %>
@@ -30,10 +32,12 @@
         <div class="control-group">
           <%= f.label :topic, :class => 'control-label' %>
           <div class="controls">
-            <%= check_box_tag(:topic) %>
-            <%= label_tag(:topic, "General Inquiry") %><br/>
-            <%= check_box_tag(:topic) %>
-            <%= label_tag(:topic, "Schedule a workshop") %><br/><br/>
+            <%= f.radio_button :topic, "General Inquiry" %>
+            <%= f.label "General Inquiry" %>
+            <%= f.radio_button :topic, "Schedule a consultation" %>
+            <%= f.label "Schedule a consultation" %>
+            <%= f.radio_button :topic, "Schedule a workshop" %>
+            <%= f.label "Schedule a workshop" %><br><br>
           </div>
 
 

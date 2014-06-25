@@ -6,4 +6,6 @@ class Post < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true
   validates :content, presence: true
+
+  self.per_page = 2
 end
