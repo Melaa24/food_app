@@ -5,95 +5,73 @@
   <%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
     <fieldset>
       <%= render 'shared/error_messages', object: f.object %>
-      <div class="span6">
+      <div class="col-md-6">
         <h2>About Me</h2>
         <div class="control-group">
           <%= f.label :birthday, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.date_field :birthday %>
-          </div>
+          <%= f.date_field :birthday %>
         </div>
 
         <div class="control-group">
           <%= f.label :phone, "Phone Number", :class => 'control-label' %>
-          <div class="controls">
-            <%= f.telephone_field(:phone) %>
-          </div>
+          <%= f.telephone_field(:phone) %>
         </div>
 
         <div class="control-group">
           <%= f.label :location, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :location, :placeholder => "Town, State" %>
-          </div>
+          <%= f.text_field :location, :placeholder => "Town, State" %>
         </div>
 
         <div class="control-group">
           <%= f.label :aliments, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_area :aliment %>
-          </div>
+          <%= f.text_area :aliment %>
         </div>
 
         <div class="control-group">
           <%= f.label :allergies, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_area :allergy %>
-          </div>
+          <%= f.text_area :allergy %>
         </div>
       </div>
 
-      <div class="span5">
+      <div class="col-md-5">
         <h2>Personal Information</h2>
         <div class="control-group">
           <%= f.label :name, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :name, :class => 'text_field' %>
-          </div>
+          <%= f.text_field :name, :class => 'text_field' %>
         </div>
 
         <div class="control-group">
           <%= f.label :email, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.email_field :email, :class => 'text_field' %>
-          </div>
+          <%= f.email_field :email, :class => 'text_field' %>
         </div>
 
         <div class="control-group">
           <%= f.label :studio, :class => 'control-label' %>
-          <div class="controls">
-            <%= collection_select(:user, :studio_id, Studio.all, :id, :name) %>
-          </div>
+          <%= collection_select(:user, :studio_id, Studio.all, :id, :name) %>
         </div>
       
         <div class="control-group">
           <%= f.label :ayurveda, :class => 'control-label' %>
-          <div class="controls">
-            <%= collection_select(:user, :ayurveda_id, Ayurveda.all, :id, :name) %>
-          </div>
+          <%= collection_select(:user, :ayurveda_id, Ayurveda.all, :id, :name) %>
         </div>
       </div>
 
-      <div class="span7 offset3">
+      <div class="col-md-7 col-md-offset-3">
         <h4>Enter your password and confirm to update your profile</h4>
 
         <div class="control-group">
           <%= f.label :password, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.password_field :password %>
-          </div>
+          <%= f.password_field :password %>
         </div>
 
         <div class="control-group">
           <%= f.label :password_confirmation, "Confirmation", :class => 'control-label' %>
-          <div class="controls">
-            <%= f.password_field :password_confirmation %>
-          </div>
+          <%= f.password_field :password_confirmation %>
         </div>
 
         <div class="form-actions">
-          <%= f.submit "Save changes", class: "btn btn-info"%>
-          <%= link_to 'Cancel', current_user, :class => 'btn' %>
+          <%= f.submit "Save changes", class: "btn btn-info" %>
+          <%= link_to 'Cancel', current_user, :class => 'btn btn-danger' %>
         </div>
       </div>
     </fieldset>

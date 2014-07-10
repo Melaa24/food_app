@@ -7,5 +7,5 @@ class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
 
-  self.per_page = 2
+  self.per_page = 4
 end

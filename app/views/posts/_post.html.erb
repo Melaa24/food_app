@@ -1,7 +1,10 @@
-<li>
-  <span class="title"><%= post.title %></span>
-  <span class="content"><%= post.content %></span>
-  <span class="timestamp">
-    <div><br>Posted by <%= post.user.name %>, <%= time_ago_in_words(post.created_at) %> ago</div>
-  </span>
-</li>
+<div class="panel panel-success">
+  <div class="panel-heading"><%= post.title %></div>
+  <div class="panel-body">
+  	<%= post.content %><br>
+    <span class="timestamp">
+      <div><br> Posted by <%= post.user.name %>, <%= time_ago_in_words(post.created_at) %> ago</div><br>
+    </span>
+  </div>
+  
+</div>

@@ -1,57 +1,38 @@
 <% provide(:title, 'Contact') %>
 <h3>We'd love to hear from you!</h3>
 <div class="row">
-  <div class="span9 offset1 well">
+  <div class="col-md-7 col-md-offset-1 well">
     <p>Contact us by phone at 603-361-4296.</p>
     <p>Contact us via the web:</p>
   	<%= form_for @contact, :html => { :class => 'form-horizontal' } do |f| %>
       <fieldset>
         <%= render 'shared/error_messages', object: f.object %>
 
-        <div class="control-group">
-          <%= f.label :name, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :name, :class => 'text_field', :required => true %>
-          </div>
-        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Name</span>
+          <%= f.text_field :name, :class => 'form-control', :required => true %>
+        </div><br><br>
 
-        <div class="control-group">
-          <%= f.label :email, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.email_field :email, :class => 'text_field', :required => true %>
-          </div>
-        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Email</span>
+          <%= f.email_field :email, :class => 'form-control', :required => true %>
+        </div><br><br>
 
-        <div class="control-group">
-          <%= f.label :phone, "Phone Number", :class => 'control-label' %>
-          <div class="controls">
-            <%= f.telephone_field(:phone) %>
-          </div>
-        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Phone Number</span>
+          <%= f.telephone_field(:phone, :class => 'form-control') %>
+        </div><br><br>
 
-        <div class="control-group">
-          <%= f.label :topic, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.radio_button :topic, "General Inquiry" %>
-            <%= f.label "General Inquiry" %>
-            <%= f.radio_button :topic, "Schedule a consultation" %>
-            <%= f.label "Schedule a consultation" %>
-            <%= f.radio_button :topic, "Schedule a workshop" %>
-            <%= f.label "Schedule a workshop" %><br><br>
-          </div>
-
-
-        <div class="control-group">
-          <%= f.label :message, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_area :message, :as => :text, :required => true %>
-          </div>
-        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Message</span>
+          <%= f.text_area :message, :as => :text, :required => true, :class => 'form-control' %>
+        </div><br><br>
     
         <div class= "hidden">
           <%= f.hidden_field :nickname, :hint => 'Leave this field blank!' %>
         </div>
-        <div class="form-actions">
+
+        <div>
           </br>
           <%= f.submit "Send Message", :class=> "btn btn-info" %>
         </div>

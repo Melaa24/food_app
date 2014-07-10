@@ -2,28 +2,24 @@
 
 
 <div class="row">
-  <div class="span6 offset3"><h3>Sign up</h3></div>
-  <div class="span6 offset3 well">
+  <div class="col-md-6 col-md-offset-3"><h3>Sign up</h3></div>
+  <div class="col-md-6 col-md-offset-3 well">
     <%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
       <fieldset>
       <%= render 'shared/error_messages', object: f.object %>
 
-        <div class="control-group">
-          <%= f.label :name, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :name, :class => 'text_field' %>
-          </div>
-        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Name</span>
+          <%= f.text_field :name, :class => 'form-control', :required => true %>
+        </div><br><br>
 
-        <div class="control-group">
-          <%= f.label :email, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.email_field :email, :class => 'text_field' %>
-          </div>
+        <div class="input-group">
+          <span class="input-group-addon">Email</span>
+          <%= f.email_field :email, :class => 'form-control', :required => true %>
         </div>
-
+<br>
         <div class="control-group">
-          <%= f.label :studio, "Yoga Studio", :class => 'control-label' %>
+          <%= f.label :studio, "Yoga Studio", :class => 'control-label' %><br><br>
           <div class="controls">
             <%= collection_select(:user, :studio_id, Studio.all, :id, :name,
                                   prompt: "Select your Yoga Studio") %>
@@ -31,26 +27,22 @@
         </div>
       
         <div class="control-group">
-          <%= f.label :ayurveda, "Ayurveda Practioner", :class => 'control-label' %>
+          <%= f.label :ayurveda, "Ayurveda Practioner", :class => 'control-label' %><br><br>
           <div class="controls">
             <%= collection_select(:user, :ayurveda_id, Ayurveda.all, :id, :name, 
                                   prompt: "Select your Practionier") %>
           </div>
         </div>
 
-        <div class="control-group">
-          <%= f.label :password, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.password_field :password %>
-          </div>
-        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Password</span>
+          <%= f.password_field :password, :class => 'form-control', :required => true %>
+        </div><br><br>
 
-        <div class="control-group">
-          <%= f.label :password_confirmation, "Confirmation", :class => 'control-label' %>
-          <div class="controls">
-            <%= f.password_field :password_confirmation %>
-          </div>
-        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Confirmation</span>
+          <%= f.password_field :password_confirmation, :class => 'form-control', :required => true %>
+        </div><br><br>
 
         <div class="form-actions">
           <%= f.submit "Create my account", class: "btn btn-large btn-info" %>

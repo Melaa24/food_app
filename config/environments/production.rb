@@ -73,13 +73,13 @@ FoodApp::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: ENV["GMAIL_DOMAIN"],
+    address: "box1033.bluehost.com",
+    port: 465,
+    domain: ENV["DOMAIN"],
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: ENV["USERNAME"],
+    password: ENV["PASSWORD"]
     }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

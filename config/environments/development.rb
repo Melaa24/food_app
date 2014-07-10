@@ -22,13 +22,13 @@ FoodApp::Application.configure do
   config.action_mailer.default charset: 'utf-8'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "gmail.com",
+    address: "box1033.bluehost.com",
+    port: 465,
+    domain: "freshlybalanced.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: ENV["USERNAME"],
+    password: ENV["PASSWORD"]
     }
 
   # Print deprecation notices to the Rails logger.

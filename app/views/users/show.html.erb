@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
   <h3><%= @user.name %></h3>
   <div class="row">
-    <div class="span6 well">
+    <div class="col-md-5 well">
       <h3>Personal Information</h3>
         <b>Current email: </b><%= @user.email %><br/ >
         <b>Yoga Studio: </b><%= @user.studio.try(:name) %><br/ >
@@ -13,7 +13,7 @@
         <b>Location: </b><%= @user.location %><br/ >
         <b>Phone number: </b><%= @user.phone %><br/ >
     </div>
-    <div class="span5 well">
+    <div class="col-md-5 col-md-offset-1 well">
   	  <h3>Recent Orders</h3>
   	    A list of recently ordered menu items
     </div>  

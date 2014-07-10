@@ -12,11 +12,10 @@ describe "ContactPages" do
 
     describe "contact form" do
       before do
-        fill_in 'Name',     with: "Full Name"
-        fill_in 'Email',    with: "example@example.com"
-        fill_in 'Phone',    with: "555-1234"
-        choose  'Schedule a workshop'
-        fill_in 'Message',  with: "questions and comments"
+        fill_in 'contact_name',     with: "Full Name"
+        fill_in 'contact_email',    with: "example@example.com"
+        fill_in 'contact_phone',    with: "555-1234"
+        fill_in 'contact_message',  with: "questions and comments"
       end
 
      before { click_button "Send Message" }

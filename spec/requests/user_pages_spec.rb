@@ -86,12 +86,12 @@ describe "User pages" do
       FactoryGirl.create(:studio) 
       FactoryGirl.create(:ayurveda)
       before do
-        fill_in "Name",               with: "Example User"
-        fill_in "Email",              with: "user@example.com"
+        fill_in "user_name",               with: "Example User"
+        fill_in "user_email",              with: "user@example.com"
         select "Example Studio",      from: "user[studio_id]"
         select "Example Ayurveda",    from: "user[ayurveda_id]"
-        fill_in "Password",           with: "foobar"
-        fill_in "Confirmation",       with: "foobar"
+        fill_in "user_password",           with: "foobar"
+        fill_in "user_password_confirmation",       with: "foobar"
       end
       after(:all) { Studio.delete_all }
       after(:all) { Ayurveda.delete_all }
